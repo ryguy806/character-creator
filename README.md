@@ -1,3 +1,8 @@
+Chraracter Creator App
+by Ryan Guelzo
+Started on 07/08/2020
+Based on DnD Character Maker by drogoganor (Thank you for the inspiration!)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
