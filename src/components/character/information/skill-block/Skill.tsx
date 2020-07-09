@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Skill(){
+export const Skill = () => {
 
     return (
         <div className="skill">

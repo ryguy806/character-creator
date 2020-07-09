@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Language(){
+export const Language =() => {
     return (
         <div className="language">
             <h4>Language List Here</h4>

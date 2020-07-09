@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Item(){
+export const Item = () => {
 
     return (
         <div className="item">

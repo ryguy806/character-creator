@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Trait(){
+export const Trait = () => {
 
     return (
         <div className="trait">

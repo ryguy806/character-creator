@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Weapon(){
+export const Weapon = () => {
 
     return (
         <div className="weapon">

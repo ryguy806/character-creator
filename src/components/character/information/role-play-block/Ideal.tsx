@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Ideal(){
+export const Ideal = () => {
 
     return (
         <div className="ideal">

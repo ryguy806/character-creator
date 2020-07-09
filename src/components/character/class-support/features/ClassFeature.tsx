@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ClassFeature(){
+export const ClassFeature = () => {
     return (
         <div className="feature">
             <h4>Class Feature Name here</h4>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Armor(){
+export const Armor = () => {
 
     return (
         <div className="armor">

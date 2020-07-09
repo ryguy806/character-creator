@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Shield(){
+export const Shield = () => {
 
     return (
-        <div className="shield">
+        <div className="Shield">
             <span>Shield goes here...</span>
         </div>
     );

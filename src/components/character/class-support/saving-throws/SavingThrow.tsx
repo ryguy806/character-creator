@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SavingThrow(){
+export const SavingThrow = () =>{
 
     return (
         <div className="saving-throw">

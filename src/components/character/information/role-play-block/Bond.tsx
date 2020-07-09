@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Bond(){
+export const Bond = () => {
 
     return (
         <div className="bond">

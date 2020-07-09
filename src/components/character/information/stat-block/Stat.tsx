@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Stat(){
+export const Stat = () => {
 
     return (
         <div className="stat">
