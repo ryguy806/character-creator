@@ -5,7 +5,7 @@ export default class Alignment extends Component {
     render(): JSX.Element {
 
         return (
-            <div>
+            <div className="alignment">
                 <span>Alignment goes here...</span>
             </div>
         );

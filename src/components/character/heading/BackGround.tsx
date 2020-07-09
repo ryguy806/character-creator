@@ -5,7 +5,7 @@ export default class Background extends Component {
     render(): JSX.Element {
 
         return (
-            <div>
+            <div className="background">
                 <span>Background goes here...</span>
             </div>
         );

@@ -6,7 +6,8 @@ export default class Class extends Component {
 
         return (
             <div className="class">
-                <h1>Character Class here</h1>
+                <h2>Character Class here</h2>
+                <span>Add Character Level here...</span>
             </div>
         );
     }
