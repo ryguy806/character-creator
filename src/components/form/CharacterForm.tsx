@@ -1,102 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Form from './FormLayout';
+import {Field} from './FormField';
 
-interface IFormProps {
-    action: string,
-}
-
-export interface IValues {
-    [key:string]: string,
-}
-
-export interface IErrors {
-    [key: string]: string,
-}
-
-export interface IFormState {
-    values: IValues,
-    errors: IErrors,
-    submitSuccess: boolean,
-}
-
-export default class CharacterForm extends Component<IFormProps, IFormState> {
-
-    constructor(props: IFormProps) {
-        super(props);
-        const errors: IErrors = {};
-        const values: IValues = {};
-        this.state = {
-            errors,
-            values,
-            submitSuccess: true,
-        };
-    }
-
-    private hasErrors(errors: IErrors): boolean {
-        let haveErrors: boolean = false;
-        Object.keys(errors).map((key: string) => {
-            if(errors[key].length > 0) {
-                haveErrors = true;
-            }
-        });
-        return haveErrors;
-    }
-
-    private handleSubmit = async (
-        e: React.FormEvent<HTMLFormElement>
-      ): Promise<void> => {
-        e.preventDefault();
-    
-        if (this.validateForm()) {
-          const submitSuccess: boolean = await this.submitForm();
-          this.setState({ submitSuccess });
-        }
-      };
-    
-    private validateForm(): boolean {
-        // TODO Validate the form
-        return true;
-    }
-
-    private async submitForm():Promise<boolean> {
-        return true;
-    }
-
-    render(): JSX.Element {
-
-        const {errors, submitSuccess} = this.state;
-
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit} noValidate={true}>
-                    <div className="container">
-                        {/* TODO Render form fields. */ }
-                        <div className="form-group">    
-                            <button
-                                type="submit"
-                                className="btn btn-primary"
-                                disabled={this.hasErrors(errors)}
-                            >
-                                Submit
-                            </button>
-                        </div>
-                        {submitSuccess && (
-                            <div className="alert alert-info" role="alert">
-                                Form successfully submitted!
-                            </div>
-                        )}
-                        {submitSuccess ===false && !this.hasErrors(errors) && (
-                            <div className="alert alert-danger" role="alert">
-                                An unexpected error has occoured.
-                            </div>
-                        )}
-                        {submitSuccess ===false && this.hasErrors(errors) && (
-                            <div className="alert alert-danger" role="alert">
-                                Form not filled out correctly, please review and try again!
-                            </div>
-                        )}
+export const CharacterForm: React.SFC = () => {
+    return (
+        <Form 
+            action="#"
+            render={() => (
+                <React.Fragment>
+                    <div className="alert alert-info" role="alert">
+                        Enter the information requested.
                     </div>
-                </form>
-            </div>
-        );
-    }
+                    <Field id="player-name" />
+                    <Field id="character-name" label="Character Name" />
+                    <Field id="character-race" label="Race" editor="dropdown"
+                     options={["", "Dragonborn", "Dwarf", "Elf", "Gnome", "Halfling", "Half-Elf", "Half-Orc", "Human", "Tiefling"]}
+                     />
+                    <Field id="character-class" label="Class" editor="dropdown"
+                    options={["", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue",
+                        "Sorcerer", "Warlock", "Wizard"]}/>
+                </React.Fragment>
+            )} />
+    )
 }
