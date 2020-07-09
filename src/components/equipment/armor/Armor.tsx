@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Armor extends Component {
+export function Armor(){
 
-    render(): JSX.Element {
-
-        return (
-            <div className="armor">
-                <span>Armor goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="armor">
+            <span>Armor goes here...</span>
+        </div>
+    );
 }

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Trait extends Component {
+export function Trait(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <span>Trait goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="trait">
+            <span>Trait goes here...</span>
+        </div>
+    );
 }

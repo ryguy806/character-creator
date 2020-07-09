@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Stat extends Component {
-    
-    render(): JSX.Element {
+export function Stat(){
 
-        return (
-            <div>
-                <span>Stat goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="stat">
+            <span>Stat goes here...</span>
+        </div>
+    );
 }

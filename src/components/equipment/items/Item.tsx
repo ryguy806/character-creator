@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Item extends Component {
+export function Item(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <span>Item goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="item">
+            <span>Item goes here...</span>
+        </div>
+    );
 }

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Shield extends Component {
+export function Shield(){
 
-    render(): JSX.Element {
-
-        return (
-            <div className="shield">
-                <span>Shield goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="shield">
+            <span>Shield goes here...</span>
+        </div>
+    );
 }

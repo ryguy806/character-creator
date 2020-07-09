@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Weapon extends Component {
+export function Weapon(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <span>Weapon goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="weapon">
+            <span>Weapon goes here...</span>
+        </div>
+    );
 }

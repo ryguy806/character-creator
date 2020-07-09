@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Ideal extends Component {
+export function Ideal(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <span>Ideal goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="ideal">
+            <span>Ideal goes here...</span>
+        </div>
+    );
 }

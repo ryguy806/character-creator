@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Skill extends Component {
+export function Skill(){
 
-    render(): JSX.Element {
-
-        return (
-            <div className="skill">
-                <span>Skill goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="skill">
+            <span>Skill goes here...</span>
+        </div>
+    );
 }

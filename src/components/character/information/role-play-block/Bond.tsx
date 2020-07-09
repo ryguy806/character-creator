@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Bond extends Component {
+export function Bond(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <span>Bond goes here...</span>
-            </div>
-        );
-    }
+    return (
+        <div className="bond">
+            <span>Bond goes here...</span>
+        </div>
+    );
 }

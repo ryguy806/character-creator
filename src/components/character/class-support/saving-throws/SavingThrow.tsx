@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import Stat from '../../information/stat-block/Stat';
+import React from 'react';
 
-export default class SavingThrow extends Component {
+export function SavingThrow(){
 
-    render(): JSX.Element {
-
-        return (
-            <div>
-                <Stat>Saving Throw goes here...</Stat>
-            </div>
-        );
-    }
+    return (
+        <div className="saving-throw">
+            <span>Saving Throw goes here...</span>
+        </div>
+    );
 }
