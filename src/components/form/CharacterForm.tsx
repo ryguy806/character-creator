@@ -5,13 +5,13 @@ import {Field} from './FormField';
 export const CharacterForm: React.SFC = () => {
     return (
         <Form 
-            action="#"
+            action="http://localhost:3000/form/CharacterForm.tsx"
             render={() => (
                 <React.Fragment>
                     <div className="alert alert-info" role="alert">
                         Enter the information requested.
                     </div>
-                    <Field id="player-name" />
+                    <Field id="player-name" label="Player Name" />
                     <Field id="character-name" label="Character Name" />
                     <Field id="character-race" label="Race" editor="dropdown"
                      options={["", "Dragonborn", "Dwarf", "Elf", "Gnome", "Halfling", "Half-Elf", "Half-Orc", "Human", "Tiefling"]}
@@ -20,6 +20,7 @@ export const CharacterForm: React.SFC = () => {
                     options={["", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue",
                         "Sorcerer", "Warlock", "Wizard"]}/>
                 </React.Fragment>
-            )} />
-    )
-}
+            )} 
+        />
+    );
+};

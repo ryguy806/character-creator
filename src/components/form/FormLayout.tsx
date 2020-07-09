@@ -32,15 +32,15 @@ export default class Form extends Component<IFormProps, IFormState> {
         };
     }
 
-    private hasErrors(errors: IErrors): boolean {
-        let haveErrors: boolean = false;
+    private hasErrors(errors: IErrors) {
+        let haveError: boolean = false;
         Object.keys(errors).map((key: string) => {
-            if(errors[key].length > 0) {
-                haveErrors = true;
-            }
+          if (errors[key].length > 0) {
+            haveError = true;
+          }
         });
-        return haveErrors;
-    }
+        return haveError;
+      }
 
     private handleSubmit = async (
         e: React.FormEvent<HTMLFormElement>
@@ -70,7 +70,7 @@ export default class Form extends Component<IFormProps, IFormState> {
             <div>
                 <form onSubmit={this.handleSubmit} noValidate={true}>
                     <div className="container">
-                        { this.props.render }
+                        { this.props.render() }
                         <div className="form-group">    
                             <button
                                 type="submit"

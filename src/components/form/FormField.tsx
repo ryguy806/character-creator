@@ -1,5 +1,4 @@
 import React from 'react';
-import {IErrors} from './CharacterForm';
 
 type Editor = "textbox" | "dropdown";
 
