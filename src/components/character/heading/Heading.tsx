@@ -10,10 +10,12 @@ export default class Heading extends Component {
         return (
             <div className="heading">
                 <Name />
-                <Race />
-                <Class />
-                <Alignment />
-                <Background />
+                <div className="subheading">
+                    <Race />
+                    <Class />
+                    <Alignment />
+                    <Background />
+                </div>
             </div>
         );
     }
