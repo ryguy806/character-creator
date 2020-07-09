@@ -7,6 +7,8 @@ import ArmorSet from '../equipment/armor/ArmorSet';
 import Items from '../equipment/items/Items';
 import Weapons from '../equipment/weapons/Weapons';
 import Heading from './heading/Heading';
+import ClassSupport from './class-support/ClassSupportBlock';
+import RaceSupportBlock from './race-support/RacialSupportBlock'
 
 export default class Character extends Component {
     render(): JSX.Element {
@@ -16,6 +18,8 @@ export default class Character extends Component {
                 <Stats />
                 <Skills />
                 <HealthBlock />
+                <ClassSupport />
+                <RaceSupportBlock />
                 <RolePlayBlock />
                 <ArmorSet />
                 <Weapons />

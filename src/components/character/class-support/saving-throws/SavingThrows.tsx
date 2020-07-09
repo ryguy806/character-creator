@@ -6,6 +6,7 @@ export default class SavingThrows extends Component {
 
         return (
             <div className="saving-throws">
+                <label>Saving Throws</label>
                 <ul>
                     <li>Saving Throws go here...</li>
                 </ul>

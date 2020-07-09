@@ -6,12 +6,15 @@ export default class DeathSavingThrows extends Component {
 
         return (
             <div className="death-saving-throws">
-                <fieldset name="success">
+                <p>Death Saving Throws</p>
+                <label htmlFor="success">Success</label>
+                <fieldset name="success" id="success">
                     <input type="checkbox"/>
                     <input type="checkbox"/>
                     <input type="checkbox"/>
                 </fieldset>
-                <fieldset name="failure">
+                <label htmlFor="failure">Failure</label>
+                <fieldset name="failure" id="failure">
                     <input type="checkbox"/>
                     <input type="checkbox"/>
                     <input type="checkbox"/>

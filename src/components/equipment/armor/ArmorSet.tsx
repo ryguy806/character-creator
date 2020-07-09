@@ -8,6 +8,7 @@ export default class ArmorSet extends Component {
 
         return (
             <div className="armor-set">
+                <label>Armor</label>
                 <Armor />
                 <Shield />
             </div>

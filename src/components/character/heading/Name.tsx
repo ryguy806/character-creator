@@ -6,7 +6,8 @@ export default class Name extends Component {
 
         return (
             <div className="name">
-                <h1>Character Name here</h1>
+                <h1>Name</h1>
+                <span>Character name goes here...</span>
             </div>
         );
     }

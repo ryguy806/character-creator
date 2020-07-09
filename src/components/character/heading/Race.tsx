@@ -6,7 +6,8 @@ export default class Race extends Component {
 
         return (
             <div className="race">
-                <h2>Character Race here</h2>
+                <h2>Race</h2>
+                <span>Character race goes here...</span>
             </div>
         );
     }
