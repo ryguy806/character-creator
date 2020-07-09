@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClassFeature from './ClassFeature';
+import {ClassFeature} from './ClassFeature';
 
 export default class ClassFeatureList extends Component {
     
