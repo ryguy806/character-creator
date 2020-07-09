@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Name from './information/Name';
-import Race from './information/Race';
-import Class from './information/Class';
+import Name from './heading/Name';
+import Race from './heading/Race';
+import Class from './heading/Class';
 import Stats from './information/stat-block/Stats';
 
 export default class Character extends Component {
