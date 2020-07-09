@@ -6,9 +6,9 @@ export default class Stats extends Component {
 
         return (
             <div className="stat-list">
-                <label>Skills</label>
+                <label>Stats</label>
                 <ul>
-                    <li>Skills go here...</li>
+                    <li>Stats go here...</li>
                 </ul>
             </div>
         );

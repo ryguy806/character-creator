@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Traits extends Component {
+export default class DeathSavingThrows extends Component {
 
     render(): JSX.Element {
 
