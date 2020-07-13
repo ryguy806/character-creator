@@ -27,7 +27,7 @@ IUserListStateToProps,
     text-align: center;
 `;
 
-export const UserList: React.FC<IUserListOwnProps> = ():JSX.Element => {
+const UserListUnconnected: React.FC<IUserListOwnProps> = ():JSX.Element => {
     return (
         <CenterContent>
             <p>
@@ -40,3 +40,10 @@ export const UserList: React.FC<IUserListOwnProps> = ():JSX.Element => {
         </CenterContent>
     );
 }
+
+export const UserList = connect<
+    IUserListStateToProps,
+    {},
+    IUserListOwnProps,
+    IAppState
+>(mapStateToProps)(UserListUnconnected);
