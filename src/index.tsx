@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import './index.css';
-import {App} from './AppUnconnected';
+import {App} from './App';
 import {UserList} from './components/user/UserList'
 import * as serviceWorker from './serviceWorker';
 import {Character} from './components/character/Character';

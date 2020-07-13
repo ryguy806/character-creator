@@ -23,26 +23,15 @@ interface IAppDispatchToProps {
   saveUserType: (user: IUser) => void;
 }
 
-const mapDispatchToProps: MapDispatchToProps<
-  IAppDispatchToProps,
-  IAppOwnProps
-> = (dispatch: Dispatch, ownProps: IAppOwnProps): IAppDispatchToProps => ({
-  saveUsername: (user: IUser) => {
-    dispatch(saveUsernameAction(user));
-  },
-
-  saveUserMessage: (user: IUser) => {
-    dispatch(saveUserMessageAction(user));
-  },
-
-  saveUserType: (user: IUser) => {
-    dispatch(saveUserTypeAction(user));
-  },
-});
-
-const AppUnconnected: React.FC<IAppOwnProps> = ({userType, username}): JSX.Element => {
+const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
+  userType,
+  username, 
+  saveUsername, 
+  saveUserMessage, 
+  saveUserType,
+}): JSX.Element => {
   
-  const [time, setTime] = useState<Date>(new Date(Date.now()));
+  const [time, setTime] = useState<Date>(() => new Date(Date.now()));
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
@@ -50,10 +39,18 @@ const AppUnconnected: React.FC<IAppOwnProps> = ({userType, username}): JSX.Eleme
       setTime(new Date(Date.now()))
     }, 1000);
 
+    if(username) {
+      saveUsername({username, userMessage: message, userType});
+    }
+
     return () => {
       clearInterval(timer)
     }
-  }, [username])
+  }, [username, saveUsername]);
+
+  useEffect(() => {
+    saveUserMessage({username, userMessage: message, userType: userType});
+  }, [message, saveUserMessage]);
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setMessage(event.target.value);
@@ -86,6 +83,23 @@ const AppUnconnected: React.FC<IAppOwnProps> = ({userType, username}): JSX.Eleme
     </div>
   );
 }
+
+const mapDispatchToProps: MapDispatchToProps<
+  IAppDispatchToProps,
+  IAppOwnProps
+> = (dispatch: Dispatch, ownProps: IAppOwnProps): IAppDispatchToProps => ({
+  saveUsername: (user: IUser) => {
+    dispatch(saveUsernameAction(user));
+  },
+
+  saveUserMessage: (user: IUser) => {
+    dispatch(saveUserMessageAction(user));
+  },
+
+  saveUserType: (user: IUser) => {
+    dispatch(saveUserTypeAction(user));
+  },
+});
 
 export const App = connect<
 {},

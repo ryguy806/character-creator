@@ -15,21 +15,24 @@ interface IUserListOwnProps {
 
 }
 
-const mapStateToProps: MapStateToProps<
-IUserListStateToProps,
- IUserListOwnProps, 
- IAppState> = (state: IAppState, ownProps: IUserListOwnProps): IUserListStateToProps => ({
-    user: state.user,
-    ...ownProps
- });
-
  const CenterContent = styled.div`
     text-align: center;
 `;
 
-const UserListUnconnected: React.FC<IUserListOwnProps> = ():JSX.Element => {
+const UserListUnconnected: React.FC<IUserListOwnProps & IUserListStateToProps> = ({
+    user
+}):JSX.Element => {
     return (
         <CenterContent>
+            <p>
+                Retrieved Username: {user.username ? user.username : 'No username found'}
+            </p>
+            <p>
+                Retrieved User Message: {user.userMessage ? user.userMessage : 'No message found'}
+            </p>
+            <p>
+                Retrieved User Type: {user.userType ? user.userType : "No user type provided."}
+            </p>
             <p>
                 UserList
             </p>
@@ -40,6 +43,15 @@ const UserListUnconnected: React.FC<IUserListOwnProps> = ():JSX.Element => {
         </CenterContent>
     );
 }
+
+const mapStateToProps: MapStateToProps<
+IUserListStateToProps,
+ IUserListOwnProps, 
+ IAppState
+ > = (state: IAppState, ownProps: IUserListOwnProps): IUserListStateToProps => ({
+    user: state.user,
+    ...ownProps
+ });
 
 export const UserList = connect<
     IUserListStateToProps,
