@@ -52,6 +52,10 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
     saveUserMessage({username, userMessage: message, userType: userType});
   }, [message, saveUserMessage]);
 
+  useEffect(() => {
+    saveUserType({username, userMessage: message, userType});
+  }, [userType, saveUserType])
+
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setMessage(event.target.value);
   }

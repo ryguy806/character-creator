@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Dispatch, AnyAction} from 'redux';
 import {ThunkDispatch} from 'redux-thunk';
 import {MapDispatchToProps, MapStateToProps, connect} from 'react-redux';
@@ -6,6 +6,11 @@ import {IAppState} from '../../store/RootReducer';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {IUser} from '../../store/user/UserTypes';
+import {getFriendList as getFriendListAction} from '../../store/user/UserActions'
+
+interface IUserListDispatchToProps {
+    getFriendList: (url: string) => void;
+}
 
 interface IUserListStateToProps {
     user: IUser,
@@ -19,9 +24,23 @@ interface IUserListOwnProps {
     text-align: center;
 `;
 
-const UserListUnconnected: React.FC<IUserListOwnProps & IUserListStateToProps> = ({
-    user
-}):JSX.Element => {
+type IUserList = IUserListStateToProps & IUserListDispatchToProps & IUserListOwnProps
+
+const UserListUnconnected: React.FC<IUserList> = 
+({
+    user,
+    getFriendList
+}): JSX.Element => {
+    const [fetchFriends, setFetchFriends] = useState<boolean>(true);
+
+    useEffect(() => {
+        if( fetchFriends ) {
+            getFriendList('https://jsonplaceholder.typicode.com/users');
+            setFetchFriends(false);
+        }
+    }, [fetchFriends]);
+    
+
     return (
         <CenterContent>
             <p>
@@ -31,13 +50,14 @@ const UserListUnconnected: React.FC<IUserListOwnProps & IUserListStateToProps> =
                 Retrieved User Message: {user.userMessage ? user.userMessage : 'No message found'}
             </p>
             <p>
-                Retrieved User Type: {user.userType ? user.userType : "No user type provided."}
+                Retrieved User Type: {user.userType ? user.userType : 'No user type provided.'}
             </p>
             <p>
                 UserList
             </p>
-
-            <Link to='/'>
+            <Link
+                to='/'
+            >
                 Home
             </Link>
         </CenterContent>
@@ -45,17 +65,26 @@ const UserListUnconnected: React.FC<IUserListOwnProps & IUserListStateToProps> =
 }
 
 const mapStateToProps: MapStateToProps<
-IUserListStateToProps,
- IUserListOwnProps, 
- IAppState
+    IUserListStateToProps,
+    IUserListOwnProps, 
+    IAppState
  > = (state: IAppState, ownProps: IUserListOwnProps): IUserListStateToProps => ({
     user: state.user,
     ...ownProps
  });
 
+ const mapDispatchToProps: MapDispatchToProps<
+ IUserListDispatchToProps,
+ IUserListOwnProps
+> = (dispatch: ThunkDispatch<{}, {}, AnyAction>, ownProps: IUserListOwnProps) => ({
+ getFriendList: async (url: string) => {
+     dispatch(getFriendListAction(url));
+ }
+});
+
 export const UserList = connect<
     IUserListStateToProps,
-    {},
+    IUserListDispatchToProps,
     IUserListOwnProps,
     IAppState
->(mapStateToProps)(UserListUnconnected);
+>(mapStateToProps, mapDispatchToProps)(UserListUnconnected);
