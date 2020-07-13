@@ -11,6 +11,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^5.1.1",
     "bootstrap": "^4.5.0",
     "bulma": "^0.9.0",
     "fibers": "^5.0.0",
@@ -20,6 +21,7 @@
     "react-scripts": "3.4.1",
     "sass": "^1.26.10",
     "server": "^1.0.29",
+    "styled-components": "^5.1.1",
     "typescript": "~3.7.2",
     "xmldom": "^0.3.0"
   },
@@ -43,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "react-router-dom": "^5.2.0"
   }
 }
