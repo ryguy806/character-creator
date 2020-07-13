@@ -7,31 +7,35 @@ import App from './App';
 import {UserList} from './components/user/UserList'
 import * as serviceWorker from './serviceWorker';
 import {Character} from './components/character/Character';
+import {Provider} from 'react-redux';
+import {store} from './store'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route 
-        exact
-        path="/"
-        render={(props) => <App userType='admin' username='ryguy8806' {...props}/>}
-      />
-    </Switch>
-    <Switch>
-      <Route
-        exact
-        path="/userList"
-        render={(props) => <UserList {...props}/>}
-      />
-    </Switch>
-    <Switch>
-      <Route
-        exact
-        path="/character"
-        render={(props) => <Character {...props}/>}
-      />
-    </Switch>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route 
+          exact
+          path="/"
+          render={(props) => <App userType='admin' username='ryguy8806' {...props}/>}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/userList"
+          render={(props) => <UserList {...props}/>}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/character"
+          render={(props) => <Character {...props}/>}
+        />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
