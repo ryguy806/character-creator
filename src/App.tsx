@@ -2,8 +2,7 @@ import React, {useState, ChangeEvent, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './App.css';
 import {Dispatch} from 'redux';
-import {ThunkDispatch} from 'redux-thunk';
-import {connect, MapStateToProps, MapDispatchToProps} from 'react-redux';
+import {connect, MapDispatchToProps} from 'react-redux';
 import {
   saveUsername as saveUsernameAction, 
   saveUserMessage as saveUserMessageAction,
@@ -34,27 +33,28 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
   const [time, setTime] = useState<Date>(() => new Date(Date.now()));
   const [message, setMessage] = useState<string>('');
 
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date(Date.now()))
+      setTime(new Date(Date.now()));
     }, 1000);
 
     if(username) {
-      saveUsername({username, userMessage: message, userType});
+      saveUsername({username, userMessage: undefined, userType: undefined});
     }
-
+    
     return () => {
-      clearInterval(timer)
+      clearInterval(timer);
     }
   }, [username, saveUsername]);
 
   useEffect(() => {
-    saveUserMessage({username, userMessage: message, userType: userType});
+    saveUserMessage({username: undefined, userMessage: message, userType: undefined});
   }, [message, saveUserMessage]);
 
   useEffect(() => {
-    saveUserType({username, userMessage: message, userType});
-  }, [userType, saveUserType])
+    saveUserType({username: undefined, userMessage: undefined, userType: userType});
+  }, [userType, saveUserType]);
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setMessage(event.target.value);
@@ -91,7 +91,7 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
 const mapDispatchToProps: MapDispatchToProps<
   IAppDispatchToProps,
   IAppOwnProps
-> = (dispatch: Dispatch, ownProps: IAppOwnProps): IAppDispatchToProps => ({
+> = (dispatch: Dispatch): IAppDispatchToProps => ({
   saveUsername: (user: IUser) => {
     dispatch(saveUsernameAction(user));
   },

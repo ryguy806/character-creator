@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Dispatch, AnyAction} from 'redux';
+import {AnyAction} from 'redux';
 import {ThunkDispatch} from 'redux-thunk';
 import {MapDispatchToProps, MapStateToProps, connect} from 'react-redux';
 import {IAppState} from '../../store/RootReducer';
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {IUser} from '../../store/user/UserTypes';
 import {getFriendList as getFriendListAction} from '../../store/user/UserActions'
+import './UserList.css'
 
 interface IUserListDispatchToProps {
     getFriendList: (url: string) => void;
@@ -38,8 +39,16 @@ const UserListUnconnected: React.FC<IUserList> =
             getFriendList('https://jsonplaceholder.typicode.com/users');
             setFetchFriends(false);
         }
-    }, [fetchFriends]);
+    }, [fetchFriends, getFriendList]);
     
+    let friendListJsx: JSX.Element | undefined = undefined;
+    if(user.friendsList) {
+        friendListJsx = (
+            <ul>
+                {user.friendsList.map((friend) => <li key={friend}>{friend}</li>)}
+            </ul>
+        )
+    }
 
     return (
         <CenterContent>
@@ -55,6 +64,10 @@ const UserListUnconnected: React.FC<IUserList> =
             <p>
                 UserList
             </p>
+            <h3>
+                Friend List
+            </h3>
+            {friendListJsx ? friendListJsx : null}
             <Link
                 to='/'
             >
