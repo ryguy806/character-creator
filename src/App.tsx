@@ -6,7 +6,6 @@ import {connect, MapDispatchToProps} from 'react-redux';
 import {
   saveUsername as saveUsernameAction, 
   saveUserMessage as saveUserMessageAction,
-  saveUserType as saveUserTypeAction,
 } from './store/user/UserActions';
 import {IUser} from './store/user/UserTypes';
 import {IAppState} from './store/RootReducer';
@@ -19,7 +18,6 @@ interface IAppOwnProps {
 interface IAppDispatchToProps {
   saveUsername: (user: IUser) => void;
   saveUserMessage: (user: IUser) => void;
-  saveUserType: (user: IUser) => void;
 }
 
 const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
@@ -27,7 +25,6 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
   username, 
   saveUsername, 
   saveUserMessage, 
-  saveUserType,
 }): JSX.Element => {
   
   const [time, setTime] = useState<Date>(() => new Date(Date.now()));
@@ -40,7 +37,7 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
     }, 1000);
 
     if(username) {
-      saveUsername({username, userMessage: undefined, userType: undefined});
+      saveUsername({username, userMessage: undefined});
     }
     
     return () => {
@@ -49,12 +46,9 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
   }, [username, saveUsername]);
 
   useEffect(() => {
-    saveUserMessage({username: undefined, userMessage: message, userType: undefined});
+    saveUserMessage({username: undefined, userMessage: message});
   }, [message, saveUserMessage]);
 
-  useEffect(() => {
-    saveUserType({username: undefined, userMessage: undefined, userType: userType});
-  }, [userType, saveUserType]);
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setMessage(event.target.value);
@@ -98,10 +92,6 @@ const mapDispatchToProps: MapDispatchToProps<
 
   saveUserMessage: (user: IUser) => {
     dispatch(saveUserMessageAction(user));
-  },
-
-  saveUserType: (user: IUser) => {
-    dispatch(saveUserTypeAction(user));
   },
 });
 
