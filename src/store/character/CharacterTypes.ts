@@ -268,7 +268,7 @@ interface ISetCharacterBackground {
     payload: ICharacter,
 }
 
-export type IUserActionTypes = 
+export type ICharacterActionTypes = 
     ISetCharacterName | 
     ISetCharacterRace |
     ISetCharacterClass |
