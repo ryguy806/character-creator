@@ -24,7 +24,7 @@ interface IClass {
     classFeatures: IClassFeatures[];
     armorProfs: number[];
     weaponProfs: IClassWeaponProfs;
-    ClassProfs: IClassProf;
+    classProfs: IClassProf;
     savingThrows: number[];
     hitDice: number;
     hpIncreasePerLevel: number;
@@ -124,10 +124,10 @@ interface IBackground {
     toolProf: number[];
     profs: number[];
     specialty?: IBackgroundSpecialty;
-    traits: IPersonalityTrait[];
-    ideals: IPersonalityTrait[];
-    bonds: IPersonalityTrait[];
-    flaws: IPersonalityTrait[];
+    traits?: IPersonalityTrait[];
+    ideals?: IPersonalityTrait[];
+    bonds?: IPersonalityTrait[];
+    flaws?: IPersonalityTrait[];
     toolSelection?: IBackgroundTool;
 }
 
