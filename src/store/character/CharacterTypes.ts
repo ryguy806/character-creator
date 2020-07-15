@@ -239,3 +239,37 @@ export interface ISelectionBlock {
     classes: IClass[];
     backgrounds: IBackground[];
 }
+
+
+export const CharacterActions = {
+    SET_NAME: 'SET_NAME',
+    SET_RACE: 'SET_RACE',
+    SET_CLASS: 'SET_CLASS',
+    SET_BACKGROUND: 'SET_BACKGROUND',
+}
+
+interface ISetCharacterName { 
+    type: typeof CharacterActions.SET_NAME,
+    payload: ICharacter,
+}
+
+interface ISetCharacterRace { 
+    type: typeof CharacterActions.SET_RACE,
+    payload: ICharacter,
+}
+
+interface ISetCharacterClass { 
+    type: typeof CharacterActions.SET_CLASS,
+    payload: ICharacter,
+}
+
+interface ISetCharacterBackground { 
+    type: typeof CharacterActions.SET_BACKGROUND,
+    payload: ICharacter,
+}
+
+export type IUserActionTypes = 
+    ISetCharacterName | 
+    ISetCharacterRace |
+    ISetCharacterClass |
+    ISetCharacterBackground;
