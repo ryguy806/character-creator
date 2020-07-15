@@ -59,9 +59,6 @@ const UserListUnconnected: React.FC<IUserList> =
                 Retrieved User Message: {user.userMessage ? user.userMessage : 'No message found'}
             </p>
             <p>
-                Retrieved User Type: {user.userType ? user.userType : 'No user type provided.'}
-            </p>
-            <p>
                 UserList
             </p>
             <h3>

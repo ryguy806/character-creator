@@ -7,7 +7,6 @@ import {
 const INITIAL_STATE: IUser = {
     username: undefined,
     userMessage: undefined,
-    userType: undefined,
 }
 
 export function userReducer(prevState: IUser = INITIAL_STATE, action: IUserActionTypes) {
@@ -24,11 +23,6 @@ export function userReducer(prevState: IUser = INITIAL_STATE, action: IUserActio
                 userMessage: (action.payload as IUser).userMessage
             }
         
-        case UserActions.SAVE_USER_TYPE  :
-            return {
-                ...prevState,
-                userMessage: (action.payload as IUser).userType
-            }
         case UserActions.SAVE_FRIENDS :
             return {
                 ...prevState,

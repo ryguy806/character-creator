@@ -20,13 +20,6 @@ export function saveUserMessage(user: IUser): IUserActionTypes {
     };
 }
 
-export function saveUserType(user: IUser): IUserActionTypes {
-    return {
-        type: UserActions.SAVE_USER_TYPE,
-        payload: user,
-    }
-}
-
 export function saveFriends(users: string[]): IUserActionTypes {
     return {
         type: UserActions.SAVE_FRIENDS,
