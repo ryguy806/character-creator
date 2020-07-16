@@ -1,24 +1,45 @@
-import {useEffect, useState} from 'react';
-import {Service} from './StartshipService';
-import {IStarship} from '../Starship';
+import { useState } from 'react';
+import { Service } from '../types/Services';
+import { Starship } from '../types/Starship';
 
-export interface IStarships {
-    results: IStarship[];
-}
+export type PostStarship = Pick<
+  Starship,
+  'name' | 'crew' | 'passengers' | 'cost_in_credits'
+>;
 
 const usePostStarshipService = () => {
-    const [result, setResult] = useState<Service<IStarships>>({
-        status: 'loading'
+  const [service, setService] = useState<Service<PostStarship>>({
+    status: 'init'
+  });
+
+  const publishStarship = (starship: PostStarship) => {
+    setService({ status: 'loading' });
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+
+    return new Promise((resolve, reject) => {
+      fetch('https://swapi.co/api/starships', {
+        method: 'POST',
+        body: JSON.stringify(starship),
+        headers
+      })
+        .then(response => response.json())
+        .then(response => {
+          setService({ status: 'loaded', payload: response });
+          resolve(response);
+        })
+        .catch(error => {
+          setService({ status: 'error', error });
+          reject(error);
+        });
     });
+  };
 
-    useEffect(() => {
-        fetch('https://swapi.co/api/starships')
-            .then(response => response.json())
-            .then(response => setResult({status: 'loaded', payload: response}))
-            .catch(error => ({status: 'error', error}));
-    }, []);
-
-    return result;
+  return {
+    service,
+    publishStarship
+  };
 };
 
 export default usePostStarshipService;
