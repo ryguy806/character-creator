@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import {Character} from './components/character/Character';
 import {Provider} from 'react-redux';
 import {store} from './store'
+import Starships from './components/Starship/Starships';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -32,6 +33,13 @@ ReactDOM.render(
           exact
           path="/character"
           render={(props) => <Character {...props}/>}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/starships"
+          render={(props) => <Starships />}
         />
       </Switch>
     </BrowserRouter>

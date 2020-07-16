@@ -1,6 +1,6 @@
 import React from 'react';
 import usePostStarshipService from './services/usePostStarshipService';
-import { disableYellowBox } from 'console';
+import { Link } from 'react-router-dom';
 
 const Starships: React.FC<{}> = () => {
     const service = usePostStarshipService()
@@ -15,6 +15,8 @@ const Starships: React.FC<{}> = () => {
             {service.status === 'error' && (
                 <div>Error, the backend moved to the dark side.</div>
             )}
+
+            <Link to="/">Home</Link>
         </div>
     );
 }

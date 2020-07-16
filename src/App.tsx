@@ -78,6 +78,11 @@ const AppUnconnected: React.FC<IAppOwnProps & IAppDispatchToProps> = ({
           Character
         </Link>
       </div>
+      <div>
+        <Link to='/starships'>
+          Starships
+        </Link>
+      </div>
     </div>
   );
 }
