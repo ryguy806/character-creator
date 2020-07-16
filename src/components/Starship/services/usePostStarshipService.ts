@@ -4,7 +4,7 @@ import { Starship } from '../types/Starship';
 
 export type PostStarship = Pick<
   Starship,
-  'name' | 'crew' | 'passengers' | 'cost_in_credits'
+  'name' | 'crew' | 'passengers' | 'cost'
 >;
 
 const usePostStarshipService = () => {
@@ -19,7 +19,7 @@ const usePostStarshipService = () => {
     headers.append('Content-Type', 'application/json; charset=utf-8');
 
     return new Promise((resolve, reject) => {
-      fetch('https://swapi.co/api/starships', {
+      fetch('https://swapi.dev/api/starships', {
         method: 'POST',
         body: JSON.stringify(starship),
         headers

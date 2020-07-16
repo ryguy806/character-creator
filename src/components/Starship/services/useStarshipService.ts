@@ -12,7 +12,7 @@ const useStarshipsService = () => {
   });
 
   useEffect(() => {
-    fetch('https://swapi.co/api/starships')
+    fetch('https://swapi.dev/api/starships')
       .then(response => response.json())
       .then(response => setResult({ status: 'loaded', payload: response }))
       .catch(error => setResult({ status: 'error', error }));

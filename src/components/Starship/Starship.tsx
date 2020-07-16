@@ -1,5 +1,5 @@
 import React from 'react';
-import useStarshipByUrlService from '../services/useStarshipByUrlService';
+import useStarshipByUrlService from './services/UseStarshipServiceByUrl';
 import Loader from './Loader';
 
 export interface Props {
@@ -21,11 +21,11 @@ const Starship: React.FC<Props> = ({ url, onClose }) => {
           <h2>{service.payload.name}</h2>
 
           <div className="price">
-            {!!service.payload.cost_in_credits &&
-            parseInt(service.payload.cost_in_credits) ? (
+            {!!service.payload.cost &&
+            parseInt(service.payload.cost) ? (
               <>
                 {new Intl.NumberFormat('en-US').format(
-                  parseInt(service.payload.cost_in_credits)
+                  parseInt(service.payload.cost)
                 )}{' '}
                 Credits
               </>

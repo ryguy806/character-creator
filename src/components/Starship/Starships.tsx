@@ -1,7 +1,8 @@
 import React from 'react';
-import useStarshipsService from '../services/useStarshipsService';
+import useStarshipsService from './services/useStarshipService';
 import Loader from './Loader';
 import Starship from './Starship';
+import CreateStarship from './CreateStarship';
 
 const Starships: React.FC<{}> = () => {
   const service = useStarshipsService();
@@ -30,6 +31,7 @@ const Starships: React.FC<{}> = () => {
       {service.status === 'error' && (
         <div>Error, the backend moved to the dark side.</div>
       )}
+      <CreateStarship />
     </>
   );
 };
