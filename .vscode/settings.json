@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "characters",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "character-creator",
+            "password": "L1ghtSab3r1122",
+            "port": 1433,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "sa"
+        }
+    ]
+}
