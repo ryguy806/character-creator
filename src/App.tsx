@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import { GlobalStyle } from './styles/FormComponents.style';
 import CharacterForm from './components/CharacterForm';
 
