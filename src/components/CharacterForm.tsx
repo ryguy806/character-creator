@@ -30,15 +30,14 @@ const CharacterForm: FC = () => {
 
   const handleSubmit = (event: MouseEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(state);
-    setErrors('');
-  }
+    setErrors("");
+  };
 
   const handleInput = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget.name;
     const value = event.currentTarget.value;
 
-    setState((prev: InitialState) => ({
+    setState((prev) => ({
       ...prev,
       [input]: value,
     }));
@@ -82,16 +81,18 @@ const CharacterForm: FC = () => {
             <label>
               <input
                 type="radio"
-                name="gender"
                 value="female"
+                name="gender"
                 checked={state.gender === "female"}
                 onChange={handleInput}
               />
               Female
+            </label>
+            <label>
               <input
                 type="radio"
-                name="gender"
                 value="male"
+                name="gender"
                 checked={state.gender === "male"}
                 onChange={handleInput}
               />
